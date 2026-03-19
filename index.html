@@ -187,13 +187,14 @@
 
         .category-menu {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start; /* Changed from center so it stops cutting off the left side */
             gap: 10px;
             margin-bottom: 40px;
             overflow-x: auto; 
-            padding-bottom: 10px;
+            padding: 0 20px 10px 20px; /* Added side padding for better mobile spacing */
             white-space: nowrap;
             -ms-overflow-style: none; scrollbar-width: none; 
+            -webkit-overflow-scrolling: touch; /* Makes the swipe super smooth on phones */
         }
         .category-menu::-webkit-scrollbar { display: none; }
 
