@@ -8,18 +8,16 @@
     
     <style>
         :root {
-            /* Elegant Black & White Palette */
             --text-dark: #111111;
             --text-light: #666666;
-            --accent: #000000; /* Pure black for primary elements */
+            --accent: #000000; 
             --subtitle: #555555; 
             --border-light: #e2e8f0; 
-            --button-hover: #333333; /* Dark gray for hover states */
+            --button-hover: #333333; 
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            /* Page 1 (Login) - Elegant soft silver to white gradient */
             background: linear-gradient(135deg, #ffffff, #e0e0e0); 
             display: flex;
             flex-direction: column;
@@ -29,21 +27,16 @@
             margin: 0;
             overflow-x: hidden;
             color: var(--text-dark);
-            /* Sleek Black Heart Cursor! 🖤 */
             cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='24' font-size='24'>🖤</text></svg>") 16 16, auto;
         }
 
-        /* --- THE WAVING LOVE GRID (Page 2 Background) --- */
         .gallery-bg {
-            background-color: #fcfcfc; /* Very soft almost-white background */
+            background-color: #fcfcfc; 
             background-image: 
-                /* Floating black and white hearts & sparkles */
                 url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><text x='15' y='30' font-size='20' opacity='0.15'>🖤</text><text x='65' y='80' font-size='15' opacity='0.2'>✨</text><text x='40' y='60' font-size='12' opacity='0.3'>🤍</text></svg>"),
-                /* Diagonal soft gray grid lines */
                 linear-gradient(rgba(0, 0, 0, 0.04) 2px, transparent 2px),
                 linear-gradient(90deg, rgba(0, 0, 0, 0.04) 2px, transparent 2px);
             background-size: 100px 100px, 40px 40px, 40px 40px;
-            /* Smooth diagonal waving grid animation */
             animation: waveGrid 12s linear infinite;
         }
 
@@ -52,12 +45,10 @@
             100% { background-position: 200px 200px, 200px 200px, 200px 200px; }
         }
         
-        /* --- SWEET LOGIN SECTION --- */
         #login-section {
             background: rgba(255, 255, 255, 0.95);
             padding: 50px 40px;
             border-radius: 24px;
-            /* Soft, elegant gray shadow */
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08); 
             text-align: center;
             transition: opacity 0.5s ease, transform 0.5s ease;
@@ -82,10 +73,16 @@
             margin-bottom: 25px;
             line-height: 1.5;
         }
+
+        .input-container {
+            position: relative;
+            width: 100%;
+            margin: 10px 0 25px 0;
+        }
         
         input {
             padding: 15px;
-            margin: 10px 0 25px 0;
+            padding-right: 50px; 
             border: 2px solid var(--border-light); 
             border-radius: 12px;
             width: 100%;
@@ -95,12 +92,30 @@
             transition: border-color 0.3s, box-shadow 0.3s;
             text-align: center;
             color: var(--text-dark);
+            margin: 0;
         }
 
         input:focus { 
             border-color: var(--accent); 
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
+        .toggle-eye {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            transition: color 0.3s;
+        }
+
+        .toggle-eye:hover { color: var(--accent); }
         
         button.primary-btn {
             background-color: var(--accent); 
@@ -123,14 +138,13 @@
         }
         
         #error-msg {
-            color: #111111; /* Kept black, but bolded for visibility */
+            color: #111111; 
             font-size: 0.9em;
             display: none; 
             margin-top: 15px;
             font-weight: 700;
         }
         
-        /* --- GALLERY SECTION --- */
         #gallery-section {
             display: none; 
             width: 100%;
@@ -196,10 +210,7 @@
             backdrop-filter: blur(5px);
         }
 
-        .category-btn:hover {
-            border-color: var(--border-light); 
-        }
-
+        .category-btn:hover { border-color: var(--border-light); }
         .category-btn.active {
             background: var(--accent); 
             color: white;
@@ -228,7 +239,7 @@
             overflow: hidden;
             cursor: pointer;
             left: calc(50% - 150px);
-            border: 5px solid white; /* Essential Polaroid-style borders */
+            border: 5px solid white; 
         }
 
         .carousel-card img {
@@ -260,16 +271,12 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .nav-btn:hover { 
-            background: var(--accent); 
-            color: white; 
-            transform: scale(1.1);
-        }
+        .nav-btn:hover { background: var(--accent); color: white; transform: scale(1.1); }
 
         #lightbox {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
-            background: rgba(10, 10, 10, 0.95); /* Deeper black for lightbox */
+            background: rgba(10, 10, 10, 0.95); 
             z-index: 1000;
             display: none; 
             flex-direction: column;
@@ -322,24 +329,30 @@
 
     <div id="login-section">
         <h2>Favorite Person 🖤</h2>
-        <p class="subtitle">Enter our secret word to unlock my heart (and our visual diary).</p>
-        <input type="password" id="password-input" placeholder="Tagnaa lang?">
-        <br>
+        <p class="subtitle">Enter your full name to unlock our visual diary.</p>
+        
+        <div class="input-container">
+            <input type="password" id="password-input" placeholder="Enter your full name">
+            <span class="toggle-eye" id="toggle-eye" title="Show Password">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+            </span>
+        </div>
+        
         <button class="primary-btn" onclick="checkPassword()">Unlock Memories</button>
-        <p id="error-msg">Oops, that's not it! Try again 🖤</p>
+        <p id="error-msg">Oops, that's not it! Try again boss 🖤</p>
     </div>
 
     <div id="gallery-section">
         <div class="gallery-header">
-            <h3>Hold my hands, Boss</h3>
-            <h1> <span>Only Us Web</span></h1>
+            <h3>HOLD MY HAND, BOSS</h3>
+            <h1><span>Only Us Web</span></h1>
             <p>Enjoying this life with you.</p>
         </div>
-
         <div class="category-menu" id="category-menu"></div>
-
         <div class="carousel-container" id="carousel-container"></div>
-
         <div class="carousel-controls">
             <button class="nav-btn" onclick="prevSlide()">&#8592;</button>
             <button class="nav-btn" onclick="nextSlide()">&#8594;</button>
@@ -353,7 +366,6 @@
     </div>
 
     <script>
-        // --- DATA STATE: List of all 6 images with categories and personal descriptions ---
         const memoryData = [
             { src: 'boss1.jpeg', category: 'Only Us', desc: 'You and me against the world.' },
             { src: 'boss2.jpeg', category: 'Our Adventures', desc: 'Exploring new places together.' },
@@ -371,23 +383,62 @@
         let isMusicPlaying = false;
         let autoPlayTimer; 
 
-        // --- PASSWORD LOGIN LOGIC ---
+        // --- THE CUSTOM NAME PUZZLE LOGIC ---
+        const toggleEye = document.getElementById('toggle-eye');
+        const passwordInput = document.getElementById('password-input');
+        let originalTypedName = "";
+        let isShowingHint = false;
+
+        toggleEye.addEventListener('click', () => {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text'; // Reveal the text
+                
+                // We check if he typed his exact name (case-insensitive just in case he didn't capitalize properly)
+                const typedText = passwordInput.value.trim().toLowerCase();
+                const secretTargetName = "eddie cabansag jr."; 
+                
+                if (typedText === secretTargetName) {
+                    originalTypedName = passwordInput.value; // Save his name
+                    passwordInput.value = 'The password is "boss"'; // Show the hint instead!
+                    isShowingHint = true;
+                } else {
+                    isShowingHint = false; // It's someone else, just show what they typed normally
+                }
+                
+                // Change to Eye-Closed icon
+                toggleEye.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>';
+                toggleEye.style.color = "var(--accent)"; 
+            } else {
+                // Turn it back into hidden dots
+                passwordInput.type = 'password';
+                
+                // If we were showing the hint, put his original name back in the box behind the scenes
+                if (isShowingHint) {
+                    passwordInput.value = originalTypedName;
+                    isShowingHint = false;
+                }
+                
+                // Change back to Eye-Open icon
+                toggleEye.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>';
+                toggleEye.style.color = "var(--text-light)";
+            }
+        });
+        // ------------------------------------
+
         function checkPassword() {
             const correctPassword = "boss"; 
+            const hintPhrase = 'The password is "boss"';
             const entered = document.getElementById("password-input").value;
             
-            if (entered.toLowerCase() === correctPassword.toLowerCase()) {
+            // Unlocks if he types "boss" OR if he hits enter while looking at the hint phrase!
+            if (entered.toLowerCase() === correctPassword.toLowerCase() || entered === hintPhrase) {
                 
-                // MUSIC: Start the music!
                 if(!isMusicPlaying) {
                     document.getElementById('bg-music').play();
                     isMusicPlaying = true;
                 }
 
-                // HEARTS: Start the monochrome floating hearts
                 startHearts();
-
-                // Haptic Feedback 
                 if (navigator.vibrate) navigator.vibrate([100, 50, 100]); 
 
                 const loginBox = document.getElementById("login-section");
@@ -396,10 +447,7 @@
                 setTimeout(() => {
                     loginBox.style.display = "none";
                     document.getElementById("gallery-section").style.display = "block";
-                    
-                    // MAGIC: Transition to the animated waving love grid!
                     document.body.classList.add("gallery-bg");
-
                     initGallery();
                 }, 500); 
             } else {
@@ -408,17 +456,13 @@
             }
         }
 
-        // --- MONOCHROME HEART GENERATOR ---
         function startHearts() {
             setInterval(() => {
                 const heart = document.createElement("div");
                 heart.classList.add("heart");
-                
-                // Black, white, and sparkling emojis to match the theme!
                 const emojis = ["🖤", "🤍", "✨", "❕", "💭"];
                 heart.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
                 
-                // Randomize position and add animation via JS directly so it matches the other styles
                 heart.style.position = "fixed";
                 heart.style.bottom = "-10vh";
                 heart.style.left = Math.random() * 100 + "vw";
@@ -427,18 +471,14 @@
                 heart.style.zIndex = "5";
                 heart.style.pointerEvents = "none";
                 
-                // We add the animation dynamically
                 const duration = Math.random() * 4 + 3;
                 heart.style.animation = `floatUp ${duration}s linear forwards`;
                 
                 document.body.appendChild(heart);
-                
-                // Remove the item after its animation finishes
                 setTimeout(() => { heart.remove(); }, duration * 1000);
             }, 300);
         }
 
-        // --- GALLERY INITIALIZATION ---
         function initGallery() {
             renderCategories();
             renderCarousel();
@@ -446,11 +486,9 @@
             startAutoPlay(); 
         }
 
-        // --- CATEGORIES MENU LOGIC ---
         function renderCategories() {
             const menu = document.getElementById("category-menu");
             menu.innerHTML = "";
-            
             categories.forEach(cat => {
                 const btn = document.createElement("button");
                 btn.className = `category-btn ${cat === currentActiveCategory ? "active" : ""}`;
@@ -462,20 +500,17 @@
 
         function filterGallery(category) {
             currentActiveCategory = category;
-            
             if (category === "All") {
                 filteredMemories = [...memoryData];
             } else {
                 filteredMemories = memoryData.filter(m => m.category === category);
             }
-            
             currentIndex = 0; 
             renderCategories(); 
             renderCarousel();   
             startAutoPlay(); 
         }
 
-        // --- 3D CAROUSEL RENDER & UPDATE ---
         function renderCarousel() {
             const container = document.getElementById("carousel-container");
             container.innerHTML = ""; 
@@ -492,7 +527,6 @@
                 
                 const img = document.createElement("img");
                 img.src = memory.src;
-                
                 card.appendChild(img);
                 
                 card.onclick = () => {
@@ -504,19 +538,15 @@
                         startAutoPlay(); 
                     }
                 };
-                
                 container.appendChild(card);
             });
-
             updateCarouselPositions();
         }
 
         function updateCarouselPositions() {
             const cards = document.querySelectorAll(".carousel-card");
-            
             cards.forEach((card, index) => {
                 const offset = index - currentIndex;
-                
                 if (offset === 0) {
                     card.style.transform = `translateX(0) scale(1) translateZ(0)`;
                     card.style.zIndex = 10;
@@ -537,7 +567,6 @@
             });
         }
 
-        // --- AUTOPLAY LOGIC ---
         function startAutoPlay() {
             clearInterval(autoPlayTimer); 
             autoPlayTimer = setInterval(() => {
@@ -548,11 +577,8 @@
             }, 2500); 
         }
 
-        function stopAutoPlay() {
-            clearInterval(autoPlayTimer);
-        }
+        function stopAutoPlay() { clearInterval(autoPlayTimer); }
 
-        // --- NAVIGATION CONTROLS ---
         function nextSlide() {
             if (filteredMemories.length > 1) {
                 currentIndex = (currentIndex + 1) % filteredMemories.length; 
@@ -571,38 +597,27 @@
             }
         }
 
-        // --- SWIPE SUPPORT FOR MOBILE ---
         let startX = 0;
         function setupSwipe() {
             const container = document.getElementById("carousel-container");
-            
-            container.addEventListener('touchstart', e => {
-                startX = e.changedTouches[0].screenX;
-            });
-
+            container.addEventListener('touchstart', e => { startX = e.changedTouches[0].screenX; });
             container.addEventListener('touchend', e => {
                 const endX = e.changedTouches[0].screenX;
                 const difference = startX - endX;
-                
                 if (difference > 50) nextSlide(); 
                 if (difference < -50) prevSlide(); 
             });
         }
 
-        // --- LIGHTBOX LOGIC ---
         function openLightbox(memory) {
             stopAutoPlay(); 
-
             const lightbox = document.getElementById("lightbox");
             const img = document.getElementById("lightbox-img");
             const desc = document.getElementById("lightbox-desc");
-
             img.src = memory.src;
             desc.innerText = memory.desc;
-            
             lightbox.style.display = "flex";
             setTimeout(() => { lightbox.style.opacity = "1"; }, 10);
-            
             if (navigator.vibrate) navigator.vibrate(100); 
         }
 
@@ -610,7 +625,6 @@
             const lightbox = document.getElementById("lightbox");
             lightbox.style.opacity = "0";
             setTimeout(() => { lightbox.style.display = "none"; }, 400);
-
             startAutoPlay(); 
         }
     </script>
